@@ -12,8 +12,7 @@ Node::Node(){
 	data = new Entry();			
 }
 
-
-
+//Constructor
 beilcaStarbucks::beilcaStarbucks(){
 
 }
@@ -35,29 +34,22 @@ beilcaStarbucks::beilcaStarbucks(){
  *       because some Starbucks locations are listed in the database twice. We will define two locations
  *       to be the "same location" if both |x1 - x2| <= 0.00001 and |y1 - y2| < 0.00001
  */
- void beilcaStarbucks::build(Entry* e, int count){
+
+//This was my K-D Build method, cannot get it to work.
+ /*void beilcaStarbucks::build(Entry* e, Node* r, int count){
 	 randomize(e, count);
 	 Entry* root = &e[0];
 
 	 Entry* build = new Entry [count];
 	 
 	 for (int i = 0; i< count; i++){
-			insert(e[i], true);
+			insert((e+i), , true);
 	 }
  }
 
- /*
- * Return a pointer to the entry that is closest to the given coordinates. Your
- *  answer may be approximate, but then you will lose points on the "Accuracy" quality measure
- */
- Entry* getNearest(double x, double y, Node* r, bool xLevel){
 
-	 //I will implement the search function here, and probably just loop through
-	 // the data in the getNearest function
 
-	 return nearestStarbucks;
- }
-
+ //This was my K-D Insert Function, cannot get it to work.
  Node* beilcaStarbucks::insert(Entry* e, Node* r, bool xLevel) {
 	 if (r->data == NULL) return;
 
@@ -81,11 +73,24 @@ beilcaStarbucks::beilcaStarbucks(){
 
 	 return r;
 }
+*/
+
+
+/*
+* Return a pointer to the entry that is closest to the given coordinates. Your
+*  answer may be approximate, but then you will lose points on the "Accuracy" quality measure
+*/
+Entry* getNearest(double x, double y, Node* r, bool xLevel){
+
+	 //I will implement the search function here, and probably just loop through
+	 // the data in the getNearest function
+	 Entry* nearestStarbucks;
+	 return nearestStarbucks;
+}
 
 Entry* beilcaStarbucks::search(double x, double y, Node* r, bool isXLevel){ 
 
 }
-
 
 //I would love to randomize my array before trying to build it!!!
 

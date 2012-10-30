@@ -3,9 +3,6 @@
 	File: beilcaStarbucks.h
 */
 
-//Using reference and tutorials for i/o streams
-//http://cplusplus.com/reference/iostream/
-
 #pragma once
 #include "Starbucks.h"
 #include <iostream>
@@ -33,15 +30,14 @@ public:
 
   }; 
 
- Node::Node(){
-	 left_ = right_ = NULL;
- }
 
  class beilcaStarbucks : public Starbucks {
  public:
 
 	 //Create a null pointer
 	 beilcaStarbucks();
+	 beilcaStarbucks(Entry* data);
+	 ~beilcaStarbucks();
 
 	 //beilcaStarbucks::beilcaStarbucks(Entry* e);
 
@@ -78,6 +74,6 @@ public:
 	 */
 	 Entry* getNearest(double x, double y, Node* r, bool xLevel);
 
-	 Entry* beilcaStarbucks::search(double x, double y, Node* r, bool isXLevel);
+	 Entry* search(double x, double y, Node* r, bool isXLevel);
 
  };
