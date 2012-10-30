@@ -18,7 +18,7 @@
 
 
 
-
+/*
  class Node{
 public:		
 
@@ -30,6 +30,7 @@ public:
 	Node(Entry e);		
 
   };
+  */
 
 
  class beilcaStarbucks : public Starbucks {
@@ -45,6 +46,7 @@ public:
 	 int arrayLength;
 	 Entry* nearestStarbucks;
 	 Entry* currentStarbucks;
+	 Entry* data;
 
 	 //Supposed to check and make sure we aren't putting values that are too close to one another in the array...
 

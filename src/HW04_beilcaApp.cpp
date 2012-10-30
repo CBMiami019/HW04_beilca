@@ -57,9 +57,11 @@ void HW04_beilcaApp::setup(){
 
 //First off I need to get the data from "Starbucks_2006.csv" and put that data into an array
 
-	ifstream inStream("../Resources/Starbucks_2006.csv");
+	ifstream inStream("Starbucks_2006.csv");
 
 	string line;
+	double x, y;
+	int i = 0;
 
 	//Variable to keep track of how many numbers are in the list, to then be able to build
 	//an array of 'count' length
@@ -68,15 +70,15 @@ void HW04_beilcaApp::setup(){
 	//This will not work in cinder
 	//cout << "Count is: " << count << endl;
 
-	do {
+	while(inStream.good()){
 		//To get each line's identifier, x value, and y value
-		Entry entry;
 		getline(inStream, line, ',');
+		inStream >> x;
 		inStream.get();
+		inStream >> y;
 		inStream.get();
 		count++;
-		//Needs to be !inStream, because if it there was no 'not' then it would stop on the first iteration... dealt with that for a bit
-	} while(!inStream.eof());
+	}
 
 
 	//This will not work in cinder
@@ -86,6 +88,20 @@ void HW04_beilcaApp::setup(){
 
 	//Restart the input stream at the beginning
 
+	while(inStream.good()) {
+		getline(inStream, line, ',');
+        inStream >> x;
+        inStream.get();
+        inStream >> y;
+        inStream.get();
+        (data+i)->identifier = line;
+        (data+i)->x = x;
+        (data+i)->y = y;
+        i++;
+	}
+
+	//My for loop is broken
+	/*
 	for (int i = 0; i < count; i++){
 		//To get each line's identifier, x value, and y value
 		Entry entry;
@@ -102,6 +118,7 @@ void HW04_beilcaApp::setup(){
 		//Similarly data[i].y = line will not work because you can't convert a string to a double
 		inStream >> data[i].y;
 	}
+	*/
 	
 	/*Entry* entryArray = new Entry[vect.size()];
 	int len = vect.size();

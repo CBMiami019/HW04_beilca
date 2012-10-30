@@ -84,8 +84,6 @@ void beilcaStarbucks::build(Entry* e, int count){
 		 }else{
 			 r->right_ = insert(e, r->right_, !xLevel);
 		 }
-		
-		 //my brain really hurts 
 	 }else{
 		 if(e->y < r->data->y){
 			 r->left_ = insert(e, r->left_, !xLevel);
@@ -98,13 +96,11 @@ void beilcaStarbucks::build(Entry* e, int count){
 }
 */
 
-
 /*
 * Return a pointer to the entry that is closest to the given coordinates. Your
 *  answer may be approximate, but then you will lose points on the "Accuracy" quality measure
 */
 Entry* beilcaStarbucks::getNearest(double x, double y){
-
 
 	//I will implement the search function here, and probably just loop through
 	// the data in the getNearest function
@@ -113,7 +109,7 @@ Entry* beilcaStarbucks::getNearest(double x, double y){
 	double shortestDistance = search(data[0], x, y);
 	Entry* nearestStarbucks = &(data[0]);
 
-	for(int i = 0; i < arrayLength; i++){
+	for(int i = 1; i < arrayLength; i++){
 		double tempDistance = search(data[i], x, y);
 		if (tempDistance < shortestDistance) {
 			shortestDistance = tempDistance;
@@ -125,12 +121,11 @@ Entry* beilcaStarbucks::getNearest(double x, double y){
 
 //Just calculates the distance between the given x and y values and those of the current entry's x and y vaules
 double beilcaStarbucks::search(Entry e, double x, double y){ 
-	double distance = (abs(sqrt(e.x-x)*(e.x-x)+(e.y-y)*(e.y-y)));
+	double distance = (abs(sqrt(((e.x-x)*(e.x-x))+((e.y-y)*(e.y-y)))));
 	return distance;
 }
 
-//I would love to randomize my array before trying to build it!!!
-
+//I would love to randomize my array before trying to build it!
 //Helped from *uthnp*
 void beilcaStarbucks::randomize(Entry* e, int arrayLength){
 	int temp1 = 0;
