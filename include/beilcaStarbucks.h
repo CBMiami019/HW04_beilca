@@ -4,6 +4,8 @@
 */
 
 #pragma once
+#include "cinder/Rand.h"
+#include <math.h>
 #include "Starbucks.h"
 #include <iostream>
 #include <ios>
@@ -11,7 +13,6 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <vector>
 #include <math.h>
 #include <cmath>
 
@@ -45,6 +46,9 @@ public:
 	 Entry* nearestStarbucks;
 	 Entry* currentStarbucks;
 
+	 //Supposed to check and make sure we aren't putting values that are too close to one another in the array...
+
+	 //But since my K-D tree has failed, I'm not sure how I can implement this on a regular array, but I shall try!
 	 static const int sameLocation = 0.00001;
 	 
 	 /*
@@ -58,9 +62,12 @@ public:
 	 *       because some Starbucks locations are listed in the database twice. We will define two locations
 	 *       to be the "same location" if both |x1 - x2| <= 0.00001 and |y1 - y2| < 0.00001
 	 */
-	 void build(Entry* e, int n);
+	 virtual void build(Entry* e, int n);
 
 	 void randomize(Entry* e, int arrayLength);
+
+	 //To delete a Starbucks if it is the same location as another Starbucks
+	 void deleteNode(Entry* e);
 
 
 	 //I will use the insert function in order to build my K-D tree
@@ -72,7 +79,7 @@ public:
 	 * Return a pointer to the entry that is closest to the given coordinates. Your
 	 *  answer may be approximate, but then you will lose points on the "Accuracy" quality measure
 	 */
-	 Entry* getNearest(double x, double y, Node* r, bool xLevel);
+	 virtual Entry* getNearest(double x, double y, Node* r, bool xLevel);
 
 	 Entry* search(double x, double y, Node* r, bool isXLevel);
 

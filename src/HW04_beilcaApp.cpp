@@ -37,6 +37,7 @@ build an array, and sort through the items in a list. I better be dead accurate.
 
 */
 
+//Big thanks for help from Adam Rasfeld and Jason Weber on the tasks that I did manage to accomplish on this assignment.
 
 
 //Using reference and tutorials for i/o streams
@@ -121,8 +122,8 @@ void HW04_beilcaApp::setup(){
 	//delete &entryArray;
 
 	
-	//create a beilcaStarbucks and build a K-D tree
-	beilcaStarbucks* starbucks;
+	//create a beilcaStarbucks and build a regular array...(tried K-D many times with 0 success)
+	beilcaStarbucks* starbucks = new beilcaStarbucks();
 	starbucks->build(data, count);	
 
 	HW04_beilcaApp::console() << "The nearest Starbucks location to these coordinates is:" << std::endl;

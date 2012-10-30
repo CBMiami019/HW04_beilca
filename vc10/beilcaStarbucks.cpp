@@ -47,8 +47,30 @@ beilcaStarbucks::beilcaStarbucks(){
 	 }
  }
 
+*/
+
+void beilcaStarbucks::build(Entry* e, int count){
+	Entry* data = new Entry[count];
+
+	arrayLength = count;
+
+	for(int i = 0; i < arrayLength; i++){
+		//Try to not add the same locations
+		if(i > 0 || i < (arrayLength-1)){
+			if (abs(e[i-1].x-e[i].x) <= sameLocation){
+			//do nothing
+			}else{
+				data[i] = e[i];
+			}
+		}
+	}
+
+	randomize(data, count);
 
 
+}
+
+/*
  //This was my K-D Insert Function, cannot get it to work.
  Node* beilcaStarbucks::insert(Entry* e, Node* r, bool xLevel) {
 	 if (r->data == NULL) return;
@@ -80,7 +102,8 @@ beilcaStarbucks::beilcaStarbucks(){
 * Return a pointer to the entry that is closest to the given coordinates. Your
 *  answer may be approximate, but then you will lose points on the "Accuracy" quality measure
 */
-Entry* getNearest(double x, double y, Node* r, bool xLevel){
+Entry* getNearest(double x, double y){
+
 
 	 //I will implement the search function here, and probably just loop through
 	 // the data in the getNearest function
