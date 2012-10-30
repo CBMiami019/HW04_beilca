@@ -103,7 +103,7 @@ void beilcaStarbucks::build(Entry* e, int count){
 * Return a pointer to the entry that is closest to the given coordinates. Your
 *  answer may be approximate, but then you will lose points on the "Accuracy" quality measure
 */
-Entry* getNearest(double x, double y){
+Entry* beilcaStarbucks::getNearest(double x, double y){
 
 
 	//I will implement the search function here, and probably just loop through
@@ -117,7 +117,7 @@ Entry* getNearest(double x, double y){
 		double tempDistance = search(data[i], x, y);
 		if (tempDistance < shortestDistance) {
 			shortestDistance = tempDistance;
-			nearestStarbucks = *(data[i]);
+			nearestStarbucks = &(data[i]);
 		}
 	}
 	return nearestStarbucks;

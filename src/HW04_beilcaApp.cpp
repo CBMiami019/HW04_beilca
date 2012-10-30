@@ -72,6 +72,8 @@ void HW04_beilcaApp::setup(){
 		//To get each line's identifier, x value, and y value
 		Entry entry;
 		getline(inStream, line, ',');
+		inStream.get();
+		inStream.get();
 		count++;
 		//Needs to be !inStream, because if it there was no 'not' then it would stop on the first iteration... dealt with that for a bit
 	} while(!inStream.eof());
@@ -79,17 +81,15 @@ void HW04_beilcaApp::setup(){
 
 	//This will not work in cinder
 	//cout << "Count is: " << count << endl;
-
-	Entry* data = new Entry [count];
+	inStream.seekg(0);
+	Entry* data = new Entry[count];
 
 	//Restart the input stream at the beginning
-
-	ifstream newStream("../Resources/Starbucks_2006.csv");
 
 	for (int i = 0; i < count; i++){
 		//To get each line's identifier, x value, and y value
 		Entry entry;
-		getline(newStream, line, ',');
+		getline(inStream, line, ',');
 		data[i].identifier = line;
 		
 		//Have the current node get the x value stored in the document
@@ -112,7 +112,7 @@ void HW04_beilcaApp::setup(){
 	*/
 	
 	//close the input stream and delete the 
-	newStream.close();
+	inStream.close();
 	//delete &entryArray;
 
 	
