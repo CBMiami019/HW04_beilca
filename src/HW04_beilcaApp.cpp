@@ -21,11 +21,7 @@
 #include "Starbucks.h"
 #include "beilcaStarbucks.h"
 
-
-
-
 /*
-
 I was absolutely correct in my assumption that my K-D Tree would be an 8 on the difficulty scale to build.
 Since starting this project I have realized I just do not understand c++/cinder and its syntax as much as
 I need in order to complete this project to the best of my ability. Through hours of video tutorials and 
@@ -34,11 +30,9 @@ other tutorials on www.cplusplus.com I am still stuck in a rut, and now it has p
 For part 2, I understand it is late, and I also did not follow through with my K-D tree, and thus will 
 suffer a harsh grade penalty, with which I am not proud of in the least. I will have to suck it up and just 
 build an array, and sort through the items in a list. I better be dead accurate. 
-
 */
 
-//Big thanks for help from Adam Rasfeld and Jason Weber on the tasks that I did manage to accomplish on this assignment.
-
+//Big thanks for help from Adam Rasfeld on the tasks that I did manage to accomplish on this assignment.
 
 //Using reference and tutorials for i/o streams
 //http://cplusplus.com/reference/iostream/
@@ -126,7 +120,10 @@ void HW04_beilcaApp::setup(){
 	beilcaStarbucks* starbucks = new beilcaStarbucks();
 	starbucks->build(data, count);	
 
-	HW04_beilcaApp::console() << "The nearest Starbucks location to these coordinates is:" << std::endl;
+	Entry* nearestStarbucks = starbucks->getNearest(0.534987, .1283099);
+
+
+	HW04_beilcaApp::console() << "Closest Starbucks is located here: " << nearestStarbucks->identifier << std::endl;
 
 }
 

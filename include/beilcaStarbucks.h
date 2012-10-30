@@ -29,7 +29,7 @@ public:
 	Node();
 	Node(Entry e);		
 
-  }; 
+  };
 
 
  class beilcaStarbucks : public Starbucks {
@@ -71,7 +71,8 @@ public:
 
 
 	 //I will use the insert function in order to build my K-D tree
-	 Node* insert(Entry* e, Node* r, bool xLevel);
+	 //Node* insert(Entry* e, Node* r, bool xLevel);
+
 	 //This function will most likely be implemented exactly as it was stated in class
 	 //..at least to the best of my knowledge
 
@@ -79,8 +80,8 @@ public:
 	 * Return a pointer to the entry that is closest to the given coordinates. Your
 	 *  answer may be approximate, but then you will lose points on the "Accuracy" quality measure
 	 */
-	 virtual Entry* getNearest(double x, double y, Node* r, bool xLevel);
+	 virtual Entry* getNearest(double x, double y);
 
-	 Entry* search(double x, double y, Node* r, bool isXLevel);
+	 double search(Entry e, double x, double y);
 
  };

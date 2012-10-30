@@ -7,10 +7,11 @@
 #include "beilcaStarbucks.h"
 
 
-Node::Node(){
+/*Node::Node(){
 	left_ = right_ = NULL;
 	data = new Entry();			
 }
+*/
 
 //Constructor
 beilcaStarbucks::beilcaStarbucks(){
@@ -105,14 +106,27 @@ void beilcaStarbucks::build(Entry* e, int count){
 Entry* getNearest(double x, double y){
 
 
-	 //I will implement the search function here, and probably just loop through
-	 // the data in the getNearest function
-	 Entry* nearestStarbucks;
-	 return nearestStarbucks;
+	//I will implement the search function here, and probably just loop through
+	// the data in the getNearest function
+
+	//Call search to see if the values
+	double shortestDistance = search(data[0], x, y);
+	Entry* nearestStarbucks = &(data[0]);
+
+	for(int i = 0; i < arrayLength; i++){
+		double tempDistance = search(data[i], x, y);
+		if (tempDistance < shortestDistance) {
+			shortestDistance = tempDistance;
+			nearestStarbucks = *(data[i]);
+		}
+	}
+	return nearestStarbucks;
 }
 
-Entry* beilcaStarbucks::search(double x, double y, Node* r, bool isXLevel){ 
-
+//Just calculates the distance between the given x and y values and those of the current entry's x and y vaules
+double beilcaStarbucks::search(Entry e, double x, double y){ 
+	double distance = (abs(sqrt(e.x-x)*(e.x-x)+(e.y-y)*(e.y-y)));
+	return distance;
 }
 
 //I would love to randomize my array before trying to build it!!!
