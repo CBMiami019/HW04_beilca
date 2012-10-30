@@ -52,18 +52,22 @@ beilcaStarbucks::beilcaStarbucks(){
 
 void beilcaStarbucks::build(Entry* e, int count){
 	Entry* data = new Entry[count];
-
 	arrayLength = count;
 
-	for(int i = 0; i < arrayLength; i++){
+	/*for(int i = 0; i < arrayLength; i++){
 		//Try to not add the same locations
-		if(i > 0 || i < (arrayLength-1)){
-			if (abs(e[i-1].x-e[i].x) <= sameLocation){
-			//do nothing
+		if(i >= 0 || i < (arrayLength-1)){
+			//Check for repeated entries.
+			if (abs(e[i-1].x-e[i].x) <= sameLocation && abs(e[i-1].y-e[i].y) <= sameLocation){
+				//do nothing
 			}else{
 				data[i] = e[i];
 			}
 		}
+	}*/
+
+	for(int i = 0; i<arrayLength; i++){
+		data[i] = e[i];
 	}
 
 	randomize(data, count);

@@ -120,25 +120,14 @@ void HW04_beilcaApp::setup(){
 	}
 	*/
 	
-	/*Entry* entryArray = new Entry[vect.size()];
-	int len = vect.size();
-	for (int i = 0; i < len; i++)
-	{
-		entryArray[i] = *(vect.at(i));
-	}
-	*/
-	
 	//close the input stream and delete the 
 	inStream.close();
-	//delete &entryArray;
 
-	
 	//create a beilcaStarbucks and build a regular array...(tried K-D many times with 0 success)
 	beilcaStarbucks* starbucks = new beilcaStarbucks();
 	starbucks->build(data, count);	
 
 	Entry* nearestStarbucks = starbucks->getNearest(0.534987, .1283099);
-
 
 	HW04_beilcaApp::console() << "Closest Starbucks is located here: " << nearestStarbucks->identifier << std::endl;
 
