@@ -51,7 +51,7 @@ beilcaStarbucks::beilcaStarbucks(){
 */
 
 void beilcaStarbucks::build(Entry* e, int count){
-	Entry* data = new Entry[count];
+	data = new Entry[count];
 	arrayLength = count;
 
 	/*for(int i = 0; i < arrayLength; i++){
@@ -70,7 +70,8 @@ void beilcaStarbucks::build(Entry* e, int count){
 		data[i] = e[i];
 	}
 
-	randomize(data, count);
+	//Not necessary with a regular array of items, but would be useful when implementing a K-D tree
+	//randomize(data, count);
 
 
 }
@@ -125,12 +126,17 @@ Entry* beilcaStarbucks::getNearest(double x, double y){
 
 //Just calculates the distance between the given x and y values and those of the current entry's x and y vaules
 double beilcaStarbucks::search(Entry e, double x, double y){ 
-	double distance = (abs(sqrt(((e.x-x)*(e.x-x))+((e.y-y)*(e.y-y)))));
-	return distance;
+	if(x >1 || y>1){
+		return 0;
+	}else{
+		double distance = (abs(sqrt(((e.x-x)*(e.x-x))+((e.y-y)*(e.y-y)))));
+		return distance;
+	}
 }
 
 //I would love to randomize my array before trying to build it!
 //Helped from *uthnp*
+
 void beilcaStarbucks::randomize(Entry* e, int arrayLength){
 	int temp1 = 0;
 	int temp2 = 0;

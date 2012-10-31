@@ -1,3 +1,4 @@
+//Many of these include files are not necessary, but they were used when trying to implement my K-D Tree
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
 
@@ -57,11 +58,11 @@ void HW04_beilcaApp::setup(){
 
 //First off I need to get the data from "Starbucks_2006.csv" and put that data into an array
 
-	ifstream inStream("Starbucks_2006.csv");
+	ifstream inStream("../resources/Starbucks_2006.csv");
 
 	string line;
 	double x, y;
-	int i = 0;
+	
 
 	//Variable to keep track of how many numbers are in the list, to then be able to build
 	//an array of 'count' length
@@ -83,11 +84,15 @@ void HW04_beilcaApp::setup(){
 
 	//This will not work in cinder
 	//cout << "Count is: " << count << endl;
-	inStream.seekg(0);
-	Entry* data = new Entry[count];
 
 	//Restart the input stream at the beginning
+	inStream.close();
+	inStream.open("../resources/Starbucks_2006.csv");
 
+	//Declare a new pointer to an array of length 'count'
+	Entry* data = new Entry[count];
+
+	int i = 0;
 	while(inStream.good()) {
 		getline(inStream, line, ',');
         inStream >> x;
